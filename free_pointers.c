@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   free_pointers.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 13:06:43 by slayer           ###   ########.fr       */
+/*   Created: 2025/11/05 12:24:28 by slayer            #+#    #+#             */
+/*   Updated: 2025/11/05 12:28:41 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-#include<stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "ft_printf/ft_printf.h"
-# include "42libft/libft.h"
-# include "ft_get_next_line/get_next_line.h"
+void	free_map(char **map)
+{
+	int i;
 
-int		check_file_name(char const *argv);
-int		check_map_validity(char **map);
-void	free_map(char **map);
-
-#endif
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}

@@ -1,7 +1,7 @@
 NAME = so_long.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
-SRCS = main.c parcer.c
+SRCS = main.c parcer.c free_pointers.c
 
 OBJS = $(SRCS:.c=.o)
 
