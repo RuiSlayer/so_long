@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:32 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 15:10:41 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/05 21:47:21 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,23 @@ char	caracter_test(char *set_essencial_init, char c)
 		return (c);
 	}
 	if (c == 'E' && set_essencial_init[0] != '\0')
-		return (perror("The map must have only one exit\n"), 'N');
+		return (perror("Error\nThe map must have only one exit\n"), 'N');
 	if (c == 'P' && set_essencial_init[1] == '\0')
 	{
 		set_essencial_init[1] = 'P';
 		return (c);
 	}
 	if (c == 'P' && set_essencial_init[1] != '\0')
-		return (perror("the map must have only one player\n"), 'N');
+		return (perror("Error\nthe map must have only one player\n"), 'N');
 	if (c == 'C')
 	{
 		set_essencial_init[2] = 'C';
 		return (c);
 	}
-	return (printf("c: %c\n",c), perror("Invalid Caracter in map\n"), 'N');
+	return (printf("c: %c\n",c), perror("Error\nInvalid Caracter in map\n"), 'N');
 }
 
-int	check_map_validity(char **map)
+int	check_map_syntax(char **map)
 {
 	int		i;
 	int		j;
@@ -88,13 +88,13 @@ int	check_map_validity(char **map)
 			j++;
 		}
 		if (i > 0 && j != last)
-			return (perror("the lines must have the same legth\n"), free(set_essencial_init), 1);
+			return (perror("Error\nThe lines must have the same legth\n"), free(set_essencial_init), 1);
 		last = j;
 		i++;
 	}
 	if (set_essencial_init[2] == '\0')
-		return (perror("The map must have at least one colectable\n"), free(set_essencial_init), 1);
+		return (perror("Error\nThe map must have at least one colectable\n"), free(set_essencial_init), 1);
 	if (j == i)
-		return (perror("The map must be a rectangle\n"), free(set_essencial_init), 1);
+		return (perror("Error\nThe map must be a rectangle\n"), free(set_essencial_init), 1);
 	return (free(set_essencial_init), 0);
 }

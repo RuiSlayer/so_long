@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 15:05:55 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/05 21:39:18 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(int argc, char const *argv[])
 	if (check_file_name(argv[1]))
 		return (1);
 	map = read_file(argv[1]);
-	if (check_map_validity(map))
+	if (check_map_syntax(map))
 		return (free_map(map), 1);
 
 	free_map(map);

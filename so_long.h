@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 13:06:43 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/05 21:38:46 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include "ft_get_next_line/get_next_line.h"
 
 int		check_file_name(char const *argv);
-int		check_map_validity(char **map);
+int		check_map_syntax(char **map);
 void	free_map(char **map);
 
 #endif
