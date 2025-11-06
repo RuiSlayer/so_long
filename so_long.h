@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 16:24:53 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 18:11:13 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,15 @@ typedef struct Pos
 typedef struct Level
 {
 	char	**map;
-	t_Pos	limit;
-	t_Pos	player_ini;
-	t_Pos	exit;
+	t_Pos	*limit;
+	t_Pos	*player_ini_pos;
+	t_Pos	*exit_init_pos;
+	int		has_colectable;
 }	t_Level;
 
 int		check_file_name(char const *argv);
-int		check_map_syntax(char **map);
-int		check_map_semantics(char **map);
-void	free_map(char **map);
+int		check_map_syntax(t_Level *level);
+int		check_map_semantics(t_Level *level);
+void	free_level(t_Level *level);
 
 #endif

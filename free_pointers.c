@@ -6,21 +6,34 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:24:28 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 12:28:41 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 17:38:08 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	free_map(char **map)
-{
-	int i;
+#include <stdlib.h>
 
-	i = 0;
-	while (map[i])
+void	free_level(t_Level *level)
+{
+	int	i;
+
+	if (level == NULL)
+		return ;
+
+	if (level->map != NULL)
 	{
-		free(map[i]);
-		i++;
+		i = 0;
+		while (level->map[i] != NULL)
+		{
+			free(level->map[i]);
+			i++;
+		}
+		free(level->map);
 	}
-	free(map);
+	free(level->limit);
+	free(level->player_ini_pos);
+	free(level->exit_init_pos);
+	free(level);
 }
+
