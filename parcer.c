@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:32 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/05 21:47:21 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 16:16:42 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,4 +97,22 @@ int	check_map_syntax(char **map)
 	if (j == i)
 		return (perror("Error\nThe map must be a rectangle\n"), free(set_essencial_init), 1);
 	return (free(set_essencial_init), 0);
+}
+
+int	check_map_semantics(char **map)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			/* code */
+		}
+		i++;
+	}
+	
 }
