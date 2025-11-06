@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:32 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 19:45:17 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 20:33:35 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ int	check_walls_top_bootom(t_Level *level)
 		j++;
 	}
 	return (0);
+}
+
+int	is_exit_posible(t_Level *level)
+{
+	int		i;
+	int		j;
+
+	
 }
 
 int	check_map_semantics(t_Level *level)

@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:34:30 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 19:45:17 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 20:30:42 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,21 @@ int	check_file_name(char const *argv)
 	int		i;
 	int		j;
 	char	*extencion;
-	int	fd;
+	int		fd;
+
 	i = ft_strlen(argv) - 1;
 	j = 3;
 	extencion = ".ber";
 	while (j >= 0)
 	{
 		if (argv[i] != extencion[j])
-			return (ft_printf("Error\nYour file must be of the type .ber\n"), 1);
+			return (ft_printf
+				("Error\nYour file must be of the type .ber\n"), 1);
 		i--;
 		j--;
 	}
 	fd = open(argv, __O_DIRECTORY);
-	if(fd >= 0)
+	if (fd >= 0)
 		return (close(fd), ft_printf("Error\nThe file can't be a dir\n"), 1);
 	return (0);
 }
@@ -79,7 +81,7 @@ int	check_map_syntax(t_Level *level)
 			j++;
 		}
 		if (i > 0 && j != last)
-			return (ft_printf("Error\nThe lines must have the same legth\n"), 1);
+			return (ft_printf("Error\nLines don't have same legth\n"), 1);
 		last = j;
 		i++;
 	}

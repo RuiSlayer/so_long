@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 20:20:48 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 20:27:04 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	read_file(t_Level *level, char const *argv)
 	if (fd < 0)
 		return (ft_printf("Error\nFile opening fail\n"), 1);
 	level->limit->y = count_lines(argv) - 1;
-	if(level->limit->y == -1)
+	if (level->limit->y == -1)
 		return (ft_printf("Error\nFile is empty\n"), 1);
 	if (level->limit->y == -1)
 		return (close(fd), 1);
