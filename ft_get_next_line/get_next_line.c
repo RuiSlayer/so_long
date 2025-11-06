@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
+/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 23:04:35 by ruislayer         #+#    #+#             */
-/*   Updated: 2025/07/03 18:30:08 by rucosta          ###   ########.fr       */
+/*   Updated: 2025/11/06 19:45:17 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*get_next_line(int fd)
 	int fd = open("get_next_line.c", O_RDONLY);
     if (fd < 0)
     {
-        perror("Error opening file");
+        ft_printf("Error opening file");
         return (1);
     }
 

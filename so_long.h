@@ -6,14 +6,14 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 18:11:13 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 20:16:48 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include<stdio.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -40,5 +40,6 @@ int		check_file_name(char const *argv);
 int		check_map_syntax(t_Level *level);
 int		check_map_semantics(t_Level *level);
 void	free_level(t_Level *level);
+void	free_level_soft(t_Level *level);
 
 #endif

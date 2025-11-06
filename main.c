@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 18:27:33 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/06 20:20:48 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_lines(char const *argv)
 	i = 0;
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		return (perror("Error opening file"), -1);
+		return (ft_printf("Error\n opening file\n"), -1);
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
@@ -33,7 +33,7 @@ int	count_lines(char const *argv)
 	return (i);
 }
 
-void	read_file(t_Level *level, char const *argv)
+int	read_file(t_Level *level, char const *argv)
 {
 	int		fd;
 	int		i;
@@ -41,13 +41,15 @@ void	read_file(t_Level *level, char const *argv)
 
 	fd = open(argv, O_RDONLY);
 	if (fd < 0)
-		perror("Error opening file");
+		return (ft_printf("Error\nFile opening fail\n"), 1);
 	level->limit->y = count_lines(argv) - 1;
+	if(level->limit->y == -1)
+		return (ft_printf("Error\nFile is empty\n"), 1);
 	if (level->limit->y == -1)
-		close(fd);
+		return (close(fd), 1);
 	level->map = malloc((level->limit->y + 2) * sizeof(char *));
 	if (!level->map)
-		close(fd);
+		return (close(fd), 1);
 	i = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -57,11 +59,13 @@ void	read_file(t_Level *level, char const *argv)
 	}
 	level->map[i] = NULL;
 	close(fd);
+	return (0);
 }
 
 t_Level	*level_init(void)
 {
-	t_Level *level;
+	t_Level	*level;
+
 	level = malloc(sizeof(t_Level));
 	level->limit = malloc(sizeof(t_Pos));
 	level->player_ini_pos = malloc(sizeof(t_Pos));
@@ -86,16 +90,20 @@ t_Level	*level_init(void)
 
 int	main(int argc, char const *argv[])
 {
-	t_Level *level;
+	t_Level	*level;
 
 	if (argc != 2)
-		return (perror("Error\nYou must pass one file as parametre to the program\n"), 1);
+		return (ft_printf
+			("Error\nYou must pass one file as parametre to the program\n"), 1);
 	if (check_file_name(argv[1]))
-		return (perror("Error\nYour file must be of the type .ber\n"), 1);
+		return (1);
 	level = level_init();
-	read_file(level, argv[1]);
-	if(!level)
-		return(perror("Error\nMap creation failed\n"), 1);
+	if (!level)
+		return (ft_printf("Error\nLevel creation faild\n"), 1);
+	if (read_file(level, argv[1]))
+		return (free_level_soft(level), 1);
+	if (!level)
+		return (ft_printf("Error\nMap creation failed\n"), 1);
 	if (check_map_syntax(level))
 		return (free_level(level), 1);
 	if (check_map_semantics(level))
