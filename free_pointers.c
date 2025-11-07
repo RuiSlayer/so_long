@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:24:28 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 20:16:35 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/07 09:18:34 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,17 @@ void	free_level_soft(t_Level *level)
 	free(level->player_ini_pos);
 	free(level->exit_init_pos);
 	free(level);
+}
+
+void	free_temp_map(char **temp_map)
+{
+	int	i;
+
+	i = 0;
+	while (temp_map[i])
+	{
+		free(temp_map[i]);
+		i++;
+	}
+	free(temp_map);
 }

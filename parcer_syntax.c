@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:34:30 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 20:30:42 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/07 09:42:53 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	caracter_test(int i, int j, t_Level *level)
 		return (ft_printf("Error\nthe map must have only one player\n"), 'N');
 	if (level->map[i][j] == 'C')
 	{
-		level->has_colectable = 1;
+		level->colectables++;
 		return (level->map[i][j]);
 	}
 	return (ft_printf("Error\nInvalid Caracter in map\n"), 'N');
@@ -85,7 +85,11 @@ int	check_map_syntax(t_Level *level)
 		last = j;
 		i++;
 	}
-	if (level->has_colectable == 0)
+	if (level->exit_init_pos->x == -1)
+		return (ft_printf("Error\nThe map must contain an exit\n"), 1);
+	if (level->player_ini_pos->x == -1)
+		return (ft_printf("Error\nThe map must contain a player\n"), 1);
+	if (level->colectables == 0)
 		return (ft_printf("Error\nThe map must have one colectable\n"), 1);
 	if (j == i)
 		return (ft_printf("Error\nThe map must be a rectangle\n"), 1);

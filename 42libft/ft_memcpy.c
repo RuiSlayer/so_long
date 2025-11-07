@@ -15,23 +15,21 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned char	*ps;
-	unsigned char	*pd;
-	int				i;
+	unsigned char		*d;
+	unsigned const char	*s;
+	size_t				i;
 
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	d = dest;
+	s = src;
 	i = 0;
-	ps = (unsigned char *)src;
-	pd = (unsigned char *)dest;
-	while (n != 0)
+	while (i < n)
 	{
-		*pd = *ps;
-		pd++;
-		ps++;
-		n--;
+		d[i] = s[i];
 		i++;
 	}
-	pd[i - 1] = '\0';
-	return (dest);
+	return (d);
 }
 
 /* int main()

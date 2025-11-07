@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 20:16:48 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/07 09:18:46 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct Level
 	t_Pos	*limit;
 	t_Pos	*player_ini_pos;
 	t_Pos	*exit_init_pos;
-	int		has_colectable;
+	int		colectables;
 }	t_Level;
 
 int		check_file_name(char const *argv);
@@ -41,5 +41,6 @@ int		check_map_syntax(t_Level *level);
 int		check_map_semantics(t_Level *level);
 void	free_level(t_Level *level);
 void	free_level_soft(t_Level *level);
+void	free_temp_map(char **temp_map);
 
 #endif

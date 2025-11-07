@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/06 20:27:04 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/07 10:21:53 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ t_Level	*level_init(void)
 	}
 	level->limit->x = -1;
 	level->limit->y = -1;
-	level->has_colectable = 0;
+	level->colectables = 0;
 	level->exit_init_pos->x = -1;
 	level->exit_init_pos->y = -1;
 	level->player_ini_pos->x = -1;
