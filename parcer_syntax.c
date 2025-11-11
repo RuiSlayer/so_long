@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:34:30 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/07 09:42:53 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/10 16:20:39 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	check_file_name(char const *argv)
 	char	*extencion;
 	int		fd;
 
+	if(argv[0] == '.')
+		return (ft_printf("Error\nThe file can't be a hidden file\n"), 1);
 	i = ft_strlen(argv) - 1;
 	j = 3;
 	extencion = ".ber";
@@ -30,6 +32,8 @@ int	check_file_name(char const *argv)
 		i--;
 		j--;
 	}
+	if(argv[i] == '/')
+		return (ft_printf("Error\nThe file can't be a hidden file\n"), 1);
 	fd = open(argv, __O_DIRECTORY);
 	if (fd >= 0)
 		return (close(fd), ft_printf("Error\nThe file can't be a dir\n"), 1);

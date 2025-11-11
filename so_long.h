@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/07 09:18:46 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/09 23:24:47 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int		check_map_syntax(t_Level *level);
 int		check_map_semantics(t_Level *level);
 void	free_level(t_Level *level);
 void	free_level_soft(t_Level *level);
-void	free_temp_map(char **temp_map);
+void	free_temp_map(char **temp_map, t_Level *level);
 
 #endif
