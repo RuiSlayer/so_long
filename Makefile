@@ -1,18 +1,20 @@
 NAME = so_long
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+#CFLAGS = -Wall -Wextra -Werror -g
+MINILIBX = ./mlx_linux/libmlx.a
+MLXFLAGS = -L$(MINILIBX) -lmlx -lXext -lX11 -lm -lz
 SRCS = free_pointers.c main.c parcer_semantics.c parcer_syntax.c
-
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C ft_get_next_line
 	$(MAKE) -C ft_printf
 	$(MAKE) -C 42libft
-	$(CC) $(CFLAGS) $(OBJS) -I. ft_get_next_line/ft_get_next_line.a ft_printf/libftprintf.a 42libft/libft.a -o $(NAME)
+	$(MAKE) -C mlx_linux
+	$(CC) $(CFLAGS) $(OBJS) -I. ft_get_next_line/ft_get_next_line.a ft_printf/libftprintf.a 42libft/libft.a $(MINILIBX) $(MLXFLAGS) -o $(NAME)
 
 %.o: %.c 
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(MLXFLAGS) -c $< -o $@
 
 all: $(NAME)
 

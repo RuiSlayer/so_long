@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/07 10:21:53 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/11 15:51:53 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,12 @@ t_Level	*level_init(void)
 int	main(int argc, char const *argv[])
 {
 	t_Level	*level;
+	void	*mlx;
+	void	*mlx_win;
 
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1366, 768, "o que tu quiseres!");
+	mlx_loop(mlx);
 	if (argc != 2)
 		return (ft_printf
 			("Error\nYou must pass one file as parametre to the program\n"), 1);

@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/09 23:24:47 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/11 15:49:04 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "ft_printf/ft_printf.h"
 # include "42libft/libft.h"
 # include "ft_get_next_line/get_next_line.h"
+# include "mlx_linux/mlx.h"
 
 typedef struct Pos
 {
