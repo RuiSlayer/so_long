@@ -1,8 +1,8 @@
 NAME = so_long
 CC = cc
-#CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g
 MINILIBX = ./mlx_linux/libmlx.a
-MLXFLAGS = -L$(MINILIBX) -lmlx -lXext -lX11 -lm -lz
+MLXFLAGS = -L$(MINILIBX) -lXext -lX11 -lm -lz
 SRCS = free_pointers.c main.c parcer_semantics.c parcer_syntax.c
 OBJS = $(SRCS:.c=.o)
 
