@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 12:24:28 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/12 18:39:59 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/12 23:07:20 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	free_temp_map(char **temp_map, t_Level *level)
 	free(temp_map);
 }
 
-void free_win_level(t_Win_level *win)
+void	free_win_level(t_Win_level *win)
 {
 	if (win->mlx_win)
 		mlx_destroy_window(win->mlx, win->mlx_win);
@@ -72,4 +72,15 @@ void free_win_level(t_Win_level *win)
 	if (win->mlx)
 		mlx_destroy_display(win->mlx);
 	free(win->mlx);
+}
+
+int	exit_win(void *vars)
+{
+	t_Game	*game;
+
+	game = (t_Game *)vars;
+	free_win_level(game->win_level);
+	free_level(game->level);
+	exit(0);
+	return (0);
 }

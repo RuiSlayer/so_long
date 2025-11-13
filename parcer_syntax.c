@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:34:30 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/10 16:20:39 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/13 00:44:35 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_file_name(char const *argv)
 	char	*extencion;
 	int		fd;
 
-	if(argv[0] == '.')
+	if (argv[0] == '.')
 		return (ft_printf("Error\nThe file can't be a hidden file\n"), 1);
 	i = ft_strlen(argv) - 1;
 	j = 3;
@@ -32,7 +32,7 @@ int	check_file_name(char const *argv)
 		i--;
 		j--;
 	}
-	if(argv[i] == '/')
+	if (argv[i] == '/')
 		return (ft_printf("Error\nThe file can't be a hidden file\n"), 1);
 	fd = open(argv, __O_DIRECTORY);
 	if (fd >= 0)
@@ -68,6 +68,17 @@ char	caracter_test(int i, int j, t_Level *level)
 	return (ft_printf("Error\nInvalid Caracter in map\n"), 'N');
 }
 
+int	check_map_syntax_aux(t_Level *level)
+{
+	if (level->exit_init_pos->x == -1)
+		return (ft_printf("Error\nThe map must contain an exit\n"), 1);
+	if (level->player_ini_pos->x == -1)
+		return (ft_printf("Error\nThe map must contain a player\n"), 1);
+	if (level->colectables == 0)
+		return (ft_printf("Error\nThe map must have one colectable\n"), 1);
+	return (0);
+}
+
 int	check_map_syntax(t_Level *level)
 {
 	int		i;
@@ -89,12 +100,8 @@ int	check_map_syntax(t_Level *level)
 		last = j;
 		i++;
 	}
-	if (level->exit_init_pos->x == -1)
-		return (ft_printf("Error\nThe map must contain an exit\n"), 1);
-	if (level->player_ini_pos->x == -1)
-		return (ft_printf("Error\nThe map must contain a player\n"), 1);
-	if (level->colectables == 0)
-		return (ft_printf("Error\nThe map must have one colectable\n"), 1);
+	if (check_map_syntax_aux(level))
+		return (1);
 	if (j == i)
 		return (ft_printf("Error\nThe map must be a rectangle\n"), 1);
 	level->limit->x = j - 1;

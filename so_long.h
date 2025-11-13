@@ -6,7 +6,7 @@
 /*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/12 18:23:03 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/13 00:50:05 by slayer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,13 @@ typedef struct Pos
 typedef struct Level
 {
 	char	**map;
+	char	**temp_map;
 	t_Pos	*limit;
 	t_Pos	*player_ini_pos;
 	t_Pos	*exit_init_pos;
 	int		colectables;
 	int		is_finished;
+	int		move_counter;
 }	t_Level;
 
 typedef struct Win_level
@@ -51,8 +53,8 @@ typedef struct Win_level
 
 typedef struct Game
 {
-	t_Level *level;
-	t_Win_level *win_level;
+	t_Level		*level;
+	t_Win_level	*win_level;
 }	t_Game;
 
 int		check_file_name(char const *argv);
@@ -62,5 +64,9 @@ void	free_level(t_Level *level);
 void	free_level_soft(t_Level *level);
 void	free_temp_map(char **temp_map, t_Level *level);
 void	free_win_level(t_Win_level *win);
-
+int		exit_win(void *vars);
+t_Level	*level_init(void);
+int		img_create(t_Win_level *Win_level);
+void	load_map_img(t_Win_level *Win_level, t_Level *level);
+void	move(t_Game *game, int x, int y);
 #endif

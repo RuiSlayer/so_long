@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 MINILIBX = ./mlx_linux/libmlx.a
 MLXFLAGS = -L$(MINILIBX) -lXext -lX11 -lm -lz
-SRCS = free_pointers.c main.c parcer_semantics.c parcer_syntax.c
+SRCS = move.c inicializations.c free_pointers.c main.c parcer_semantics.c parcer_syntax.c
 OBJS = $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
