@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 22:53:34 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/13 00:53:14 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/18 18:58:08 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ void	move(t_Game *game, int x, int y)
 	{
 		move_aux(game, x, y);
 		load_map_img(game->win_level, game->level);
+		free_win_level(game->win_level);
+		free_level(game->level);
+		exit(0);
 	}
 }

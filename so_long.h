@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 09:50:46 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/13 00:50:05 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/18 18:57:10 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	free_temp_map(char **temp_map, t_Level *level);
 void	free_win_level(t_Win_level *win);
 int		exit_win(void *vars);
 t_Level	*level_init(void);
-int		img_create(t_Win_level *Win_level);
+int		img_create(t_Win_level *Win_level, t_Level *level);
 void	load_map_img(t_Win_level *Win_level, t_Level *level);
 void	move(t_Game *game, int x, int y);
 #endif

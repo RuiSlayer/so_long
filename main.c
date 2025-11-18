@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 08:57:01 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/13 00:55:31 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/18 18:56:32 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,8 @@ int	main(int argc, char const **argv)
 	win_level.mlx = mlx_init();
 	win_level.mlx_win = mlx_new_window(win_level.mlx,
 			64 * (level->limit->x + 1), 64 * (level->limit->y + 1), "So_Long");
-	img_create(&win_level);
+	if (img_create(&win_level, level))
+		return (ft_printf("Error\nImage creation fail\n"), 1);
 	load_map_img(&win_level, level);
 	game.level = level;
 	game.win_level = &win_level;

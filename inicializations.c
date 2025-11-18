@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   inicializations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: slayer <slayer@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rucosta <rucosta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/12 22:51:52 by slayer            #+#    #+#             */
-/*   Updated: 2025/11/13 00:50:23 by slayer           ###   ########.fr       */
+/*   Updated: 2025/11/18 18:56:04 by rucosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,20 @@ t_Level	*level_init(void)
 	return (level);
 }
 
-int	img_create(t_Win_level *Win_level)
+int	load_map_parser(t_Win_level *Win_level, t_Level *level)
+{
+	if (!(Win_level->wall) || !(Win_level->floor)
+		|| !(Win_level->player)
+		|| !(Win_level->colectable) || !(Win_level->exit))
+	{
+		free_level(level);
+		free_win_level(Win_level);
+		return (1);
+	}
+	return (0);
+}
+
+int	img_create(t_Win_level *Win_level, t_Level *level)
 {
 	int		img_width;
 	int		img_height;
@@ -55,7 +68,7 @@ int	img_create(t_Win_level *Win_level)
 			"./textures/egg.xpm", &img_width, &img_height);
 	Win_level->floor = mlx_xpm_file_to_image(Win_level->mlx,
 			"./textures/floor.xpm", &img_width, &img_height);
-	return (0);
+	return (load_map_parser(Win_level, level));
 }
 
 void	load_map_img_aux(t_Win_level *Win_level, t_Level *level, int i, int j)

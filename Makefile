@@ -14,7 +14,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -I. ft_get_next_line/ft_get_next_line.a ft_printf/libftprintf.a 42libft/libft.a $(MINILIBX) $(MLXFLAGS) -o $(NAME)
 
 %.o: %.c 
-	$(CC) $(CFLAGS) $(MLXFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(MINILIBX) -c $< -o $@
 
 all: $(NAME)
 
